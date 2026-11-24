@@ -1,0 +1,20 @@
+{
+    "name": "text-classifier-summarizer",
+    "version": "1.0.0",
+    "description": "A modular Node.js AWS Lambda application for AI-powered text classification and summarization.",
+    "main": "app/handler.js",
+    "type": "commonjs",
+    "scripts": {
+        "start": "node app/run.js",
+        "test": "node --test",
+        "smoke:groq": "node scripts/groq-smoke.js",
+        "smoke:modes": "node scripts/modes-smoke.js"
+    },
+    "engines": {
+        "node": ">=24"
+    },
+    "dependencies": {
+        "dotenv": "^18.0.10",
+        "groq-sdk": "^1.6.0"
+    }
+}

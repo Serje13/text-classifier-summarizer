@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "subject": "Invoice #1234 overdue",
+        "body": "Dear customer, your invoice #1234 is overdue. Please complete the payment within 5 business days."
+    },
+    {
+        "id": 2,
+        "subject": "Weekly engineering sync",
+        "body": "The engineering team will discuss API performance, database optimization, and deployment issues."
+    },
+    {
+        "id": 3,
+        "subject": "Company retreat announcement",
+        "body": "We are organizing a company retreat next month. Please register your interest with the HR team."
+    },
+    {
+        "id": 4,
+        "subject": "",
+        "body": " "
+    }
+]
