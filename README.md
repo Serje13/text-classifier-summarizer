@@ -111,9 +111,85 @@ On Windows PowerShell:
 Copy-Item .env.example .env
 ```
 
+On Windows Command Prompt (CMD):
+
+```cmd
+copy .env.example .env
+```
+
 Configure the variables described in the [Environment variables](#environment-variables) section. The `.env` file is excluded from Git.
 
 Numeric configuration values must be positive integers. An invalid value stops application initialization.
+
+## Groq API Setup
+
+The application uses the Groq API to access an LLM. A Groq account and API key are required. No local LLM installation is necessary.
+
+Open the official [Groq Console](https://console.groq.com/) to manage your account and API keys.
+
+### Obtaining an API key
+
+1. Open the Groq Console.
+2. Sign in or create a Groq account.
+3. Navigate to the API Keys section.
+4. Generate a new API key and copy it.
+
+### Environment configuration
+
+Create a local `.env` file from `.env.example`:
+
+```bash
+cp .env.example .env
+```
+
+On Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+On Windows Command Prompt (CMD):
+
+```cmd
+copy .env.example .env
+```
+
+Set your Groq API key in `.env`:
+
+```env
+GROQ_API_KEY=your_groq_api_key
+```
+
+The model has a default, so `GROQ_MODEL` is optional. To configure it explicitly:
+
+```env
+GROQ_MODEL=openai/gpt-oss-120b
+```
+
+Refer to the existing Configuration section for the other supported environment variables and defaults.
+
+### Verifying the connection
+
+Check communication with the Groq API:
+
+```bash
+npm run smoke:groq
+```
+
+Check the classification and summarization modes using the configured model:
+
+```bash
+npm run smoke:modes
+```
+
+These commands are live smoke tests and require a valid API key. They do not deploy the application.
+
+### API key security
+
+- Never commit `.env` to version control.
+- Never expose or share the Groq API key.
+- `.env` is excluded from Git through `.gitignore`.
+- `.env.example` contains configuration placeholders and can safely be committed.
 
 ## Installation
 
@@ -126,6 +202,15 @@ For a clean reproducible installation:
 ```bash
 npm ci
 ```
+
+On Windows PowerShell, if npm commands are blocked by the system's ExecutionPolicy, use the `.cmd` alternatives:
+
+```powershell
+npm.cmd ci
+npm.cmd test
+```
+
+These are Windows-specific alternatives to the standard cross-platform npm commands.
 
 ## Local execution
 
